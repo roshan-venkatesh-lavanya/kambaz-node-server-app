@@ -1,27 +1,31 @@
-import Database from "../Database/index.js";
-import { v4 as uuidv4 } from "uuid";
+import assignmentModel from "./model.js";
+
+export function createAssignment(assignment) {
+  console.log("Creating assignment with data:", assignment);
+  return assignmentModel.create(assignment);
+}
+
+export function findAllAssignments() {
+  return assignmentModel.find();
+}
 
 export function findAssignmentsForCourse(courseId) {
-  return Database.assignments.filter(a => a.course === courseId);
+  console.log("Finding assignments for course:", courseId);
+  return assignmentModel.find({ course: courseId });
 }
 
-export function findAssignmentById(aid) {
-  return Database.assignments.find(a => a._id === aid);
+export function findAssignmentById(assignmentId) {
+  return assignmentModel.findOne({ _id: assignmentId });
 }
 
-export function createAssignment(data) {
-  const newAssn = { ...data, _id: uuidv4() };
-  Database.assignments.push(newAssn);
-  return newAssn;
+export function updateAssignment(assignmentId, updates) {
+  console.log("Updating assignment:", assignmentId, "with:", updates);
+  return assignmentModel.findOneAndUpdate({ _id: assignmentId }, updates, {
+    new: true,
+  });
 }
 
-export function updateAssignment(aid, updates) {
-  const assn = findAssignmentById(aid);
-  if (!assn) return null;
-  Object.assign(assn, updates);
-  return assn;
-}
-
-export function deleteAssignment(aid) {
-  Database.assignments = Database.assignments.filter(a => a._id !== aid);
+export function deleteAssignment(assignmentId) {
+  console.log("Deleting assignment:", assignmentId);
+  return assignmentModel.findOneAndDelete({ _id: assignmentId });
 }
