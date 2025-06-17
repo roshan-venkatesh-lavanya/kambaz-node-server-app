@@ -1,41 +1,67 @@
-import * as dao from "./dao.js";
+import * as enrollmentsDao from "./dao.js";
 
-export default function EnrollmentRoutes(app) {
-
-  function resolveUserId(paramUserId, session) {
-    if (paramUserId === "current") {
-      const cu = session.currentUser;
-      if (!cu) return null;
-      return cu._id;
+export default function EnrollmentsRoutes(app) {
+  app.get("/api/enrollments", async (req, res) => {
+    try {
+      const enrollments = await enrollmentsDao.findAllEnrollments();
+      res.send(enrollments);
+    } catch (err) {
+      console.error("Error fetching all enrollments:", err);
+      res.status(500).send({ error: "Internal server error" });
     }
-    return paramUserId;
-  }
-
-  app.get("/api/users/:userId/enrollments", (req, res) => {
-    const uid = resolveUserId(req.params.userId, req.session);
-    if (!uid) return res.sendStatus(401);
-    const list = dao.findEnrollmentsForUser(uid);
-    res.json(list);
   });
 
-  app.post("/api/users/:userId/courses/:courseId", (req, res) => {
-    const uid = resolveUserId(req.params.userId, req.session);
-    if (!uid) return res.sendStatus(401);
-    const cid = req.params.courseId;
-    if (dao.findEnrollmentByUserCourse(uid, cid)) {
-      return res.status(400).json({ message: "Already enrolled" });
+  app.get("/api/enrollments/current", async (req, res) => {
+    const currentUser = req.session["currentUser"];
+
+    if (!currentUser || !currentUser._id) {
+      console.warn("GET /api/enrollments/current - No current user in session");
+      return res.status(400).send({
+        error: "No user is currently logged in",
+        session: req.session,
+      });
     }
-    const created = dao.createEnrollment(uid, cid);
-    res.json(created);
+
+    try {
+      const enrollments = await enrollmentsDao.getUserEnrollments(
+        currentUser._id
+      );
+      res.send(enrollments);
+    } catch (err) {
+      console.error("Error fetching enrollments:", err);
+      res.status(500).send({ error: "Internal server error" });
+    }
   });
 
-  app.delete("/api/users/:userId/courses/:courseId", (req, res) => {
-    const uid = resolveUserId(req.params.userId, req.session);
-    if (!uid) return res.sendStatus(401);
-    const cid = req.params.courseId;
-    const enroll = dao.findEnrollmentByUserCourse(uid, cid);
-    if (!enroll) return res.sendStatus(404);
-    dao.deleteEnrollmentById(enroll._id);
-    res.sendStatus(204);
+  app.post("/api/enrollments/current", async (req, res) => {
+    const currentUser = req.session["currentUser"];
+    const { courseId } = req.body;
+
+    if (!currentUser || !currentUser._id) {
+      console.warn(
+        "POST /api/enrollments/current - No current user in session"
+      );
+      return res.status(400).send({
+        error: "User not logged in",
+        session: req.session,
+      });
+    }
+
+    if (!courseId) {
+      return res
+        .status(400)
+        .send({ error: "Missing courseId in request body" });
+    }
+
+    try {
+      const updatedEnrollments = await enrollmentsDao.toggleUserInCourse(
+        currentUser._id,
+        courseId
+      );
+      res.send(updatedEnrollments);
+    } catch (err) {
+      console.error("Error toggling enrollment:", err);
+      res.status(500).send({ error: "Internal server error" });
+    }
   });
 }
