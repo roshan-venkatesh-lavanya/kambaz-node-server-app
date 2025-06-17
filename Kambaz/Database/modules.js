@@ -1,5 +1,5 @@
-export default[
-
+export default 
+[
   {
     "_id": "M101",
     "name": "Introduction to Rocket Propulsion",
@@ -82,37 +82,156 @@ export default[
     "_id": "M201",
     "name": "Fundamentals of Aerodynamics",
     "description": "Basic aerodynamic concepts and fluid dynamics principles.",
-    "course": "RS102"
+    "course": "RS102",
+    "lessons": [
+      {
+        "_id": "L401",
+        "name": "Introduction to Aerodynamics",
+        "description": "Overview of aerodynamic principles and terminology.",
+        "module": "M201"
+      },
+      {
+        "_id": "L402",
+        "name": "Fluid Dynamics Basics",
+        "description": "Fundamentals of fluid flow and related physics.",
+        "module": "M201"
+      },
+      {
+        "_id": "L403",
+        "name": "Airfoil Theory",
+        "description": "Understanding lift, drag, and airfoil shapes.",
+        "module": "M201"
+      }
+    ]
   },
   {
     "_id": "M202",
     "name": "Subsonic and Supersonic Flow",
     "description": "Understanding subsonic and supersonic aerodynamic behaviors.",
-    "course": "RS102"
+    "course": "RS102",
+    "lessons": [
+      {
+        "_id": "L404",
+        "name": "Subsonic Flow Characteristics",
+        "description": "Analysis of flow at speeds below the speed of sound.",
+        "module": "M202"
+      },
+      {
+        "_id": "L405",
+        "name": "Supersonic Flow and Shock Waves",
+        "description": "Introduction to supersonic flow phenomena and shock waves.",
+        "module": "M202"
+      },
+      {
+        "_id": "L406",
+        "name": "Applications of Supersonic Aerodynamics",
+        "description": "Use cases in aerospace engineering and design.",
+        "module": "M202"
+      }
+    ]
   },
   {
     "_id": "M203",
     "name": "Aerodynamic Heating",
     "description": "Study of aerodynamic heating and thermal protection systems.",
-    "course": "RS102"
+    "course": "RS102",
+    "lessons": [
+      {
+        "_id": "L407",
+        "name": "Basics of Aerodynamic Heating",
+        "description": "Mechanisms of heating during high-speed flight.",
+        "module": "M203"
+      },
+      {
+        "_id": "L408",
+        "name": "Thermal Protection Materials",
+        "description": "Materials and designs for protecting vehicles from heat.",
+        "module": "M203"
+      },
+      {
+        "_id": "L409",
+        "name": "Heat Transfer in Aerospace",
+        "description": "Analysis of conduction, convection, and radiation effects.",
+        "module": "M203"
+      }
+    ]
   },
   {
     "_id": "M301",
     "name": "Spacecraft Structural Design",
     "description": "Fundamentals of designing spacecraft structures and materials selection.",
-    "course": "RS103"
+    "course": "RS103",
+    "lessons": [
+      {
+        "_id": "L501",
+        "name": "Introduction to Spacecraft Structures",
+        "description": "Overview of spacecraft structural requirements.",
+        "module": "M301"
+      },
+      {
+        "_id": "L502",
+        "name": "Materials for Spacecraft",
+        "description": "Materials selection and properties for space applications.",
+        "module": "M301"
+      },
+      {
+        "_id": "L503",
+        "name": "Structural Analysis Techniques",
+        "description": "Methods to analyze spacecraft structural integrity.",
+        "module": "M301"
+      }
+    ]
   },
   {
     "_id": "M302",
     "name": "Orbital Mechanics",
     "description": "Understanding orbital dynamics and mission planning.",
-    "course": "RS103"
+    "course": "RS103",
+    "lessons": [
+      {
+        "_id": "L504",
+        "name": "Basic Orbital Mechanics",
+        "description": "Fundamentals of orbits and trajectories.",
+        "module": "M302"
+      },
+      {
+        "_id": "L505",
+        "name": "Orbital Maneuvers",
+        "description": "Techniques to change orbits and spacecraft trajectories.",
+        "module": "M302"
+      },
+      {
+        "_id": "L506",
+        "name": "Mission Planning and Design",
+        "description": "Planning space missions using orbital mechanics.",
+        "module": "M302"
+      }
+    ]
   },
   {
     "_id": "M303",
     "name": "Spacecraft Systems Engineering",
     "description": "Overview of spacecraft systems and subsystems engineering.",
-    "course": "RS103"
+    "course": "RS103",
+    "lessons": [
+      {
+        "_id": "L507",
+        "name": "Systems Engineering Fundamentals",
+        "description": "Principles of systems engineering in spacecraft design.",
+        "module": "M303"
+      },
+      {
+        "_id": "L508",
+        "name": "Subsystem Integration",
+        "description": "Techniques for integrating spacecraft subsystems.",
+        "module": "M303"
+      },
+      {
+        "_id": "L509",
+        "name": "Testing and Validation",
+        "description": "Ensuring spacecraft system reliability through tests.",
+        "module": "M303"
+      }
+    ]
   }
-
 ];
