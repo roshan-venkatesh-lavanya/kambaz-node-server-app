@@ -12,13 +12,13 @@
     "CS5610",
     "CS4550"
   ],
-  "homepage": "https://github.com/Saran-Jagadeesan-Uma/kambaz-node-server-app#readme",
+  "homepage": "https://github.com/roshan-venkatesh-lavanya/kambaz-node-server-app#readme",
   "bugs": {
-    "url": "https://github.com/Saran-Jagadeesan-Uma/kambaz-node-server-app/issues"
+    "url": "https://github.com/roshan-venkatesh-lavanya/kambaz-node-server-app/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Saran-Jagadeesan-Uma/kambaz-node-server-app.git"
+    "url": "git+https://github.com/roshan-venkatesh-lavanya/kambaz-node-server-app.git"
   },
   "license": "ISC",
   "author": "Saran Jagadeesan Uma",
