@@ -1,36 +1,23 @@
-
-
 export default function QueryParameters(app) {
   app.get("/lab5/calculator", (req, res) => {
     const { a, b, operation } = req.query;
-    const x = parseInt(a, 10);
-    const y = parseInt(b, 10);
-    let result;
-
+    let result = 0;
     switch (operation) {
       case "add":
-        result = x + y;
+        result = parseInt(a) + parseInt(b);
         break;
-
       case "subtract":
-        result = x - y;
+        result = parseInt(a) - parseInt(b);
         break;
-
       case "multiply":
-        result = x * y;
+        result = parseInt(a) * parseInt(b);
         break;
-
       case "divide":
-        if (y === 0) {
-          return res.status(400).send("Cannot divide by zero");
-        }
-        result = x / y;
+        result = parseInt(a) / parseInt(b);
         break;
-
       default:
-        return res.status(400).send("Invalid operation");
+        result = "Invalid operation";
     }
-
     res.send(result.toString());
   });
 }
