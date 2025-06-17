@@ -1,20 +1,39 @@
 {
-   "type": "module",
-   "name": "kambaz-node-server-app",
-   "version": "1.0.0",
-   "description": "Node.js HTTP Web server for the Kmabaz application",
-   "main": "index.js",
-   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node index.js"
-   },
-   "author": "",
-   "license": "ISC",
-   "dependencies": {
-      "cors": "^2.8.5",
-      "dotenv": "^16.5.0",
-      "express": "^5.1.0",
-      "express-session": "^1.18.1",
-      "uuid": "^11.1.0"
-   }
+  "name": "kambaz-node-server-app",
+  "version": "1.0.0",
+  "description": " Node.js HTTP Web server for the Kambaz application",
+  "keywords": [
+    "Node",
+    "REST",
+    "Server",
+    "HTTP",
+    "Web",
+    "Development",
+    "CS5610",
+    "CS4550"
+  ],
+  "homepage": "https://github.com/Saran-Jagadeesan-Uma/kambaz-node-server-app#readme",
+  "bugs": {
+    "url": "https://github.com/Saran-Jagadeesan-Uma/kambaz-node-server-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saran-Jagadeesan-Uma/kambaz-node-server-app.git"
+  },
+  "license": "ISC",
+  "author": "Saran Jagadeesan Uma",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.15.2",
+    "uuid": "^11.1.0"
+  }
 }
