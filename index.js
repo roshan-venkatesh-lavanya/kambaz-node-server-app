@@ -48,5 +48,7 @@ Hello(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
 EnrollmentsRoutes(app);
+QuizRoutes(app);
+QuRoutes(app)
 const port = process.env.PORT || 4000;
 app.listen(port);
