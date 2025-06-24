@@ -10,7 +10,7 @@ import session from "express-session";
 import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
 import "dotenv/config";
 import QuizRoutes from "./Kambaz/Quizzes/routes.js";
-import QuestionRoutes from "./Kambaz/Questions/routes.js";
+import QuestionsRoutes from "./Kambaz/Questions/routes.js";
 import mongoose from "mongoose";
 
 const CONNECTION_STRING =
