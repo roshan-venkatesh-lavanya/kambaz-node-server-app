@@ -9,6 +9,8 @@ import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import session from "express-session";
 import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
 import "dotenv/config";
+import QuizRoutes from "./Kambaz/Quizzes/routes.js";
+import QuestionRoutes from "./Kambaz/Questions/routes.js";
 import mongoose from "mongoose";
 
 const CONNECTION_STRING =
@@ -49,6 +51,6 @@ ModuleRoutes(app);
 AssignmentRoutes(app);
 EnrollmentsRoutes(app);
 QuizRoutes(app);
-QuRoutes(app)
+QuestionsRoutes(app);
 const port = process.env.PORT || 4000;
 app.listen(port);
