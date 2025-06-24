@@ -16,6 +16,13 @@ const CONNECTION_STRING =
 mongoose.connect(CONNECTION_STRING);
 const app = express();
 
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.NETLIFY_URL || "http://localhost:5173",
+  })
+);
+
 const sessionOptions = {
   secret: process.env.SESSION_SECRET || "kambaz",
   resave: false,
@@ -31,12 +38,6 @@ if (process.env.NODE_ENV !== "development") {
   };
 }
 
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.NETLIFY_URL || "http://localhost:5173",
-  })
-);
 app.use(session(sessionOptions));
 app.use(express.json());
 
